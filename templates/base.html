@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
-
+  
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
+    <title>Bootstrap 101 Template</title>
+    <style>
+      .good {background-color: #0C0;}
+      .moderate {background-color: #FFFF00;}
+      .USG {background-color: #FF9900;}
+      .Unhealthy {background-color: #FF0000;}
+      .VeryUnhealthy {background-color: #990066;}
+      .Hazardous {background-color: #660000;}
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -49,9 +56,10 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form navbar-left">
+            <form action="{% url 'home' %}"class="navbar-form navbar-left"method="POST">
+              {% csrf_token %}
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text"class="form-control"placeholder="Enter Zip Code"aria-label="Search"name="ZipCode">
               </div>
               <button type="submit" class="btn btn-outline-secondary my-2 my-sm-0">Search</button>
             </form>
